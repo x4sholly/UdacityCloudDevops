@@ -23,6 +23,10 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - run: echo world
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $MY_ENV_NAME
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -33,3 +37,4 @@ workflows:
       - say-world:
           requires:
             - say-hello
+      
